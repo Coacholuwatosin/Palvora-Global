@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+
+
+
+
+
+<!-- First hero  -->
+
+<section class="heroSectionWrapper">
+
+    <div class="heroLeftContent">
+        <h1 class="heroMainTitle">
+            Research that<br>
+            commands<br>
+            <span class="heroAccent">global authority.</span>
+        </h1>
+
+        <p class="heroSmallText">
+            From manuscript refinement to strategic journal indexing, we engineer positioning that earns citations, visibility, and international academic recognition.
+        </p>
+
+        <div class="heroButtonRow">
+            <a href="#" class="heroPrimaryButton">
+                Start Your Strategy Session
+                <i class="ri-arrow-right-line"></i>
+            </a>
+        </div>
+
+        <div class="heroStatsRow">
+            <div class="heroStatCard">
+                <h3>150+</h3>
+                <p>Research manuscripts engineered & optimized</p>
+            </div>
+
+            <div class="heroStatCard">
+                <h3>98%</h3>
+                <p>Journal targeting precision & approval success</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="heroRightVisual">
+        <img src="assets/images/Hero2.png" alt="Global Research Positioning">
+    </div>
+
+</section>
+
+<style>
+
+.heroSectionWrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    padding-top: 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+.heroSectionWrapper::before {
+    content: "";
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle at 30% 40%, rgba(30,107,255,0.25), transparent 60%);
+    filter: blur(120px);
+    z-index: -2;
+}
+
+.heroLeftContent {
+    max-width: 640px;
+}
+
+.heroMainTitle {
+    font-size: clamp(46px, 6vw, 65px);
+    line-height: 0.98;
+    font-weight: 900;
+    letter-spacing: -2.5px;
+}
+
+.heroAccent {
+    background: linear-gradient(95deg, #1E6BFF, #00C2FF 60%, #4DA3FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.heroSmallText {
+    margin-top: 32px;
+    color: rgba(255,255,255,0.78);
+    font-size: 17px;
+    max-width: 560px;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+.heroButtonRow {
+    margin-top: 50px;
+}
+
+.heroPrimaryButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 42px;
+    border-radius: 60px;
+    background: linear-gradient(100deg, #1E6BFF, #00C2FF);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.4px;
+    transition: all 0.4s ease;
+    box-shadow: 
+        0 18px 45px rgba(30,107,255,0.35),
+        0 8px 25px rgba(0,194,255,0.25);
+}
+
+.heroPrimaryButton:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 
+        0 30px 70px rgba(30,107,255,0.45),
+        0 12px 35px rgba(0,194,255,0.35);
+}
+
+.heroStatsRow {
+    margin-top: 90px;
+    display: flex;
+    gap: 32px;
+}
+
+.heroStatCard {
+    background: rgba(255,255,255,0.05);
+    padding: 34px;
+    border-radius: 28px;
+    backdrop-filter: blur(50px);
+    border: 1px solid rgba(255,255,255,0.12);
+    width: 240px;
+    transition: all 0.4s ease;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.5);
+}
+
+.heroStatCard:hover {
+    transform: translateY(-10px);
+    border: 1px solid rgba(30,107,255,0.7);
+    box-shadow: 0 30px 75px rgba(30,107,255,0.25);
+}
+
+.heroStatCard h3 {
+    font-size: 38px;
+    font-weight: 800;
+    background: linear-gradient(95deg, #1E6BFF, #00C2FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.heroStatCard p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    margin-top: 12px;
+    line-height: 1.6;
+}
+
+.heroRightVisual {
+    position: relative;
+}
+
+.heroRightVisual::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(0,194,255,0.25), transparent 70%);
+    filter: blur(140px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.heroRightVisual{
+    position:relative;
+    display:inline-block;
+}
+
+.heroRightVisual img{
+    width:680px;
+    max-width:100%;
+    animation:floatVisual 7s ease-in-out infinite;
+    border-radius:28px;
+    position:relative;
+    /* border-right:3px solid rgba(56,189,248,0.9); */
+    border-bottom:1px solid rgba(146, 51, 234, 0.07);
+    border-radius:400px;
+    z-index:2;
+}
+
+
+
+@keyframes floatVisual {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-52px); }
+    100% { transform: translateY(0px); }
+}
+
+@media (max-width: 1200px) {
+    .heroSectionWrapper {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 130px;
+    }
+
+    .heroStatsRow {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .heroRightVisual {
+        margin-top: 70px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .heroMainTitle {
+        font-size: clamp(38px, 8vw, 52px);
+        letter-spacing: -1.5px;
+    }
+
+    .heroSmallText {
+        font-size: 16px;
+    }
+
+    .heroStatsRow {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 60px;
+    }
+
+    .heroStatCard {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .heroPrimaryButton {
+        padding: 16px 32px;
+        font-size: 14px;
+    }
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+<!-- Second hero -->
+
+<section class="heroSectionWrapper">
+
+    <div class="heroFramework">
+
+        <div class="heroTopMeta">
+            <div class="heroMetaLine"></div>
+            <span>Strategic Academic Positioning</span>
+        </div>
+
+        <h1 class="heroMainTitle">
+            Research that commands
+            <span>global authority.</span>
+        </h1>
+
+        <p class="heroSmallText">
+            From manuscript refinement to strategic journal indexing, we engineer positioning that earns citations, visibility, and international academic recognition.
+        </p>
+
+        <div class="heroCTAZone">
+            <a href="#" class="heroPrimaryButton">
+                Start Your Strategy Session
+                <i class="ri-arrow-right-line"></i>
+            </a>
+        </div>
+
+        <div class="heroOrbitalVisual">
+            <div class="orbitalGlow"></div>
+            <img src="assets/images/Hero2.png" alt="Global Research Positioning">
+            <div class="statPillar statLeft">
+                <h3>150+</h3>
+                <span>Manuscripts Engineered</span>
+            </div>
+            <div class="statPillar statRight">
+                <h3>98%</h3>
+                <span>Journal Precision Success</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+
+.heroSectionWrapper{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:160px 6% 120px;
+    position:relative;
+    overflow:hidden;
+}
+
+.heroSectionWrapper::before{
+    content:"";
+    position:absolute;
+    width:1000px;
+    height:1000px;
+    background:radial-gradient(circle at 50% 40%,rgba(30,107,255,0.18),transparent 65%);
+    filter:blur(140px);
+    z-index:-2;
+}
+
+.heroFramework{
+    max-width:1100px;
+    text-align:center;
+    position:relative;
+}
+
+.heroTopMeta{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:14px;
+    font-size:12px;
+    letter-spacing:1.6px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.6);
+    margin-bottom:40px;
+}
+
+.heroMetaLine{
+    width:40px;
+    height:1px;
+    background:linear-gradient(90deg,#1E6BFF,#00C2FF);
+}
+
+.heroMainTitle{
+    font-size:clamp(44px,6vw,72px);
+    line-height:1.02;
+    font-weight:900;
+    letter-spacing:-2.5px;
+    max-width:900px;
+    margin:0 auto;
+}
+
+.heroMainTitle span{
+    display:block;
+    background:linear-gradient(95deg,#1E6BFF,#00C2FF 60%,#4DA3FF);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.heroSmallText{
+    margin:40px auto 0;
+    max-width:720px;
+    font-size:17px;
+    line-height:1.6;
+    color:rgba(255,255,255,0.78);
+}
+
+.heroCTAZone{
+    margin-top:60px;
+}
+
+.heroPrimaryButton{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:18px 48px;
+    border-radius:60px;
+    background:linear-gradient(100deg,#1E6BFF,#00C2FF);
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:15px;
+    letter-spacing:.4px;
+    transition:.4s;
+    box-shadow:0 20px 55px rgba(30,107,255,0.35);
+}
+
+.heroPrimaryButton:hover{
+    transform:translateY(-6px) scale(1.04);
+    box-shadow:0 35px 85px rgba(30,107,255,0.45);
+}
+
+.heroOrbitalVisual{
+    margin-top:100px;
+    position:relative;
+    display:inline-block;
+}
+
+.heroOrbitalVisual img{
+    width:620px;
+    max-width:100%;
+    border-radius:400px;
+    position:relative;
+    z-index:2;
+    animation:floatVisual 8s ease-in-out infinite;
+}
+
+.orbitalGlow{
+    position:absolute;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle,rgba(0,194,255,0.25),transparent 70%);
+    filter:blur(140px);
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index:1;
+}
+
+.statPillar{
+    position:absolute;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(40px);
+    border:1px solid rgba(255,255,255,0.12);
+    padding:28px 34px;
+    border-radius:30px;
+    text-align:left;
+    width:240px;
+    box-shadow:0 20px 55px rgba(0,0,0,0.5);
+    z-index:3;
+}
+
+.statPillar h3{
+    font-size:36px;
+    font-weight:800;
+    background:linear-gradient(95deg,#1E6BFF,#00C2FF);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.statPillar span{
+    display:block;
+    font-size:13px;
+    color:rgba(255,255,255,0.75);
+    margin-top:10px;
+}
+
+.statLeft{
+    top:20%;
+    left:-120px;
+}
+
+.statRight{
+    bottom:15%;
+    right:-120px;
+}
+
+@keyframes floatVisual{
+    0%{transform:translateY(0)}
+    50%{transform:translateY(-40px)}
+    100%{transform:translateY(0)}
+}
+
+@media(max-width:1200px){
+    .statLeft{left:-60px}
+    .statRight{right:-60px}
+}
+
+@media(max-width:1024px){
+    .statLeft,
+    .statRight{
+        position:relative;
+        left:auto;
+        right:auto;
+        top:auto;
+        bottom:auto;
+        margin:30px auto 0;
+        display:block;
+    }
+    .heroOrbitalVisual{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+}
+
+@media(max-width:650px){
+    .heroSectionWrapper{
+        padding-top:130px;
+    }
+    .heroMainTitle{
+        font-size:clamp(34px,8vw,48px);
+        letter-spacing:-1.5px;
+    }
+    .heroSmallText{
+        font-size:15px;
+    }
+    .heroPrimaryButton{
+        padding:16px 32px;
+        font-size:14px;
+    }
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="trustSection">
+
+    <div class="trustWrapper">
+
+        <div class="trustIntro">
+            <span class="trustTag">Client Trust</span>
+            <h2>
+                Global scholars rely on our <span>precision, compliance and strategy.</span>
+            </h2>
+        </div>
+
+        <div class="trustLayout">
+
+            <!-- Featured Review -->
+            <div class="trustFeatured">
+
+                <div class="trustQuote">“</div>
+
+                <p>
+                    Their publication architecture strategy transformed our international
+                    submission success rate. The compliance depth and journal targeting
+                    precision were exceptional.
+                </p>
+
+                <div class="trustAuthor">
+                    <strong>Dr. Helena Weiss</strong>
+                    <span>Senior Research Fellow — Germany</span>
+                </div>
+
+            </div>
+
+            <!-- Secondary Reviews -->
+            <div class="trustSecondary">
+
+                <div class="trustCard shiftUp">
+                    <p>
+                        The mobility documentation framework simplified complex visa
+                        compliance for our entire academic delegation.
+                    </p>
+                    <div class="trustAuthorSmall">
+                        <strong>Michael Grant</strong>
+                        <span>Institutional Director — UK</span>
+                    </div>
+                </div>
+
+                <div class="trustCard shiftRight">
+                    <p>
+                        Their familiarity with Scopus and Web of Science indexing
+                        dramatically improved our research positioning.
+                    </p>
+                    <div class="trustAuthorSmall">
+                        <strong>Prof. Nadia Rahman</strong>
+                        <span>Publication Lead — UAE</span>
+                    </div>
+                </div>
+
+                <div class="trustCard shiftDown">
+                    <p>
+                        Strategic advisory at a level rarely seen in global academic
+                        consultancy. Professional, structured and deeply analytical.
+                    </p>
+                    <div class="trustAuthorSmall">
+                        <strong>Daniel Moretti</strong>
+                        <span>Research Advisor — Canada</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+
+.trustSection {
+    position: relative;
+    padding: 220px 6%;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(168,85,247,0.18), transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(232,121,249,0.15), transparent 50%),
+        linear-gradient(180deg, #06020d 0%, #090414 100%);
+}
+
+.trustWrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.trustIntro {
+    max-width: 750px;
+    margin-bottom: 120px;
+}
+
+.trustTag {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(232,121,249,0.8);
+}
+
+.trustIntro h2 {
+    font-size: clamp(36px, 5vw, 60px);
+    line-height: 1.1;
+    font-weight: 300;
+    color: #f6ecff;
+    margin-top: 20px;
+}
+
+.trustIntro h2 span {
+    background: linear-gradient(90deg, #c084fc, #e879f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Layout */
+
+.trustLayout {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 120px;
+    align-items: start;
+}
+
+/* Featured Card */
+
+.trustFeatured {
+    position: relative;
+    padding: 80px;
+    border-radius: 32px;
+    background: rgba(25,10,45,0.55);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(168,85,247,0.25);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+}
+
+.trustQuote {
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    font-size: 140px;
+    color: rgba(168,85,247,0.08);
+}
+
+.trustFeatured p {
+    font-size: 20px;
+    line-height: 1.9;
+    color: #f1eaff;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+.trustAuthor strong {
+    display: block;
+    font-size: 18px;
+    color: #fff;
+}
+
+.trustAuthor span {
+    font-size: 14px;
+    color: rgba(232,121,249,0.8);
+}
+
+/* Secondary Column */
+
+.trustSecondary {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    position: relative;
+}
+
+.trustSecondary::before {
+    content: "";
+    position: absolute;
+    left: -30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+        180deg,
+        rgba(168,85,247,0.4),
+        rgba(168,85,247,0.05)
+    );
+    opacity: 0.4;
+}
+
+/* Small Cards */
+
+.trustCard {
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(25,10,45,0.45);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(168,85,247,0.15);
+    transition: all 0.4s ease;
+}
+
+.trustCard p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 25px;
+}
+
+.trustAuthorSmall strong {
+    display: block;
+    font-size: 15px;
+    color: #fff;
+}
+
+.trustAuthorSmall span {
+    font-size: 13px;
+    color: rgba(232,121,249,0.7);
+}
+
+/* Architectural Offsets */
+
+.shiftUp {
+    margin-top: -40px;
+}
+
+.shiftRight {
+    margin-left: 60px;
+}
+
+.shiftDown {
+    margin-left: -30px;
+}
+
+/* Hover depth */
+
+.trustCard:hover {
+    transform: translateY(-8px);
+    border-color: rgba(232,121,249,0.6);
+}
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+
+    .trustLayout {
+        grid-template-columns: 1fr;
+        gap: 80px;
+    }
+
+    .shiftUp,
+    .shiftRight,
+    .shiftDown {
+        margin: 0;
+    }
+
+    .trustSecondary::before {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .trustSection {
+        padding: 140px 6%;
+    }
+
+    .trustFeatured {
+        padding: 50px;
+    }
+
+}
+
+</style>
+
+
+
+<section class="aboutSectionWrapper">
+
+    <div class="aboutContainer">
+
+        <div class="aboutHeader">
+            <div class="aboutMicroLabel">
+                <span></span>
+                Who we are & why scholars trust us
+            </div>
+
+            <h2 class="aboutTitle">
+                We are a <span>full-spectrum academic consultancy</span>
+                operating as your <span>strategic publication partner</span>
+                — engineered for measurable research outcomes.
+            </h2>
+        </div>
+
+        <div class="aboutPanels">
+
+            <div class="aboutPanel">
+                <div class="panelIndex">01</div>
+                <div class="panelBody">
+                    Structured manuscript refinement and transparent collaboration across every research phase.
+                </div>
+            </div>
+
+            <div class="aboutPanel offset">
+                <div class="panelIndex">02</div>
+                <div class="panelBody">
+                    Up to <span>$2,000+</span> saved per publication through precision journal targeting and zero resubmission waste.
+                </div>
+            </div>
+
+            <div class="aboutPanel">
+                <div class="panelIndex">03</div>
+                <div class="panelBody">
+                    No generic templates — only discipline-specific, publication-ready precision.
+                </div>
+            </div>
+
+            <div class="aboutPanel offset">
+                <div class="panelIndex">04</div>
+                <div class="panelBody">
+                    Flexible collaboration without compromising academic integrity or quality.
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+
+.aboutSectionWrapper {
+    padding: 180px 8%;
+    background: #05070d;
+}
+
+.aboutContainer {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.aboutHeader {
+    max-width: 820px;
+    margin-bottom: 140px;
+}
+
+.aboutMicroLabel {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 40px;
+}
+
+.aboutMicroLabel span {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg,#1E6BFF,transparent);
+}
+
+.aboutTitle {
+    font-size: clamp(34px,4vw,50px);
+    line-height: 1.2;
+    font-weight: 600;
+    color: white;
+}
+
+.aboutTitle span {
+    background: linear-gradient(95deg,#1E6BFF,#00C2FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.aboutPanels {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.aboutPanel {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    align-items: center;
+    padding: 60px 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.aboutPanel:last-child {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.panelIndex {
+    font-size: 120px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.04);
+    letter-spacing: -4px;
+}
+
+.panelBody {
+    font-size: 18px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.85);
+    max-width: 600px;
+}
+
+.panelBody span {
+    font-weight: 700;
+    background: linear-gradient(95deg,#1E6BFF,#00C2FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.offset {
+    transform: translateX(80px);
+}
+
+@media (max-width: 1000px) {
+
+    .aboutPanel {
+        grid-template-columns: 120px 1fr;
+    }
+
+    .panelIndex {
+        font-size: 80px;
+    }
+
+    .offset {
+        transform: translateX(40px);
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .aboutSectionWrapper {
+        padding: 120px 6%;
+    }
+
+    .aboutPanels {
+        gap: 30px;
+    }
+
+    .aboutPanel {
+        grid-template-columns: 70px 1fr;
+        padding: 30px 0;
+    }
+
+    .panelIndex {
+        font-size: 42px;
+        color: rgba(255,255,255,0.15);
+    }
+
+    .panelBody {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .offset {
+        transform: none;
+    }
+
+}
+
+</style>
+
+
+
+
+
+    
+</body>
+</html><section class="faqSection">
+
+    <div class="faqWrapper">
+
+        <div class="faqIntro">
+            <span class="faqTag">Support</span>
+            <h2>
+                Frequently Asked
+                <span>Questions</span>
+            </h2>
+        </div>
+
+        <div class="faqContainer">
+
+            <div class="faqItem">
+                <button class="faqQuestion">
+                    <span>How long does the publication process take?</span>
+                    <div class="faqIcon"></div>
+                </button>
+                <div class="faqAnswer">
+                    <p>
+                        Timelines depend on journal review cycles and indexing requirements.
+                        On average, structured submissions take between 4 to 12 weeks
+                        depending on revisions and peer review feedback.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faqItem">
+                <button class="faqQuestion">
+                    <span>Do you guarantee journal acceptance?</span>
+                    <div class="faqIcon"></div>
+                </button>
+                <div class="faqAnswer">
+                    <p>
+                        We do not guarantee acceptance, as final decisions are made by
+                        editorial boards. However, we significantly improve your chances
+                        through structured review alignment and formatting precision.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faqItem">
+                <button class="faqQuestion">
+                    <span>Can you assist with international visa documentation?</span>
+                    <div class="faqIcon"></div>
+                </button>
+                <div class="faqAnswer">
+                    <p>
+                        Yes. We assist with structured documentation, verification,
+                        and preparation guidance to ensure a smooth and compliant
+                        submission process.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faqItem">
+                <button class="faqQuestion">
+                    <span>Do you work with global institutions?</span>
+                    <div class="faqIcon"></div>
+                </button>
+                <div class="faqAnswer">
+                    <p>
+                        We collaborate with researchers and academic professionals
+                        across Europe, North America, the Middle East, and Asia,
+                        adapting to institutional standards accordingly.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+
+.faqSection {
+    padding: 220px 6%;
+    background:
+        radial-gradient(circle at 50% 20%, rgba(168,85,247,0.15), transparent 60%),
+        linear-gradient(180deg, #05010a 0%, #0b0216 100%);
+}
+
+.faqWrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.faqIntro {
+    text-align: center;
+    margin-bottom: 120px;
+}
+
+.faqTag {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(232,121,249,0.8);
+}
+
+.faqIntro h2 {
+    font-size: clamp(36px, 6vw, 68px);
+    font-weight: 200;
+    color: #f4eaff;
+    margin-top: 20px;
+}
+
+.faqIntro h2 span {
+    display: block;
+    background: linear-gradient(90deg, #c084fc, #e879f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.faqContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.faqItem {
+    border-radius: 24px;
+    background: rgba(22,8,45,0.65);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(168,85,247,0.25);
+    overflow: hidden;
+    transition: border 0.4s ease, box-shadow 0.4s ease;
+}
+
+.faqItem.active {
+    border: 1px solid rgba(232,121,249,0.6);
+    box-shadow: 0 0 40px rgba(168,85,247,0.25);
+}
+
+.faqQuestion {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 30px 35px;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+}
+
+.faqQuestion span {
+    max-width: 85%;
+}
+
+.faqIcon {
+    width: 22px;
+    height: 22px;
+    position: relative;
+}
+
+.faqIcon::before,
+.faqIcon::after {
+    content: "";
+    position: absolute;
+    background: #e879f9;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.faqIcon::before {
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.faqIcon::after {
+    height: 100%;
+    width: 2px;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+.faqItem.active .faqIcon::after {
+    transform: translateX(-50%) scaleY(0);
+    opacity: 0;
+}
+
+.faqAnswer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.4s ease;
+    padding: 0 35px;
+}
+
+.faqItem.active .faqAnswer {
+    max-height: 400px;
+    padding: 0 35px 30px 35px;
+}
+
+.faqAnswer p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.85);
+}
+
+@media (max-width: 768px) {
+
+    .faqQuestion {
+        padding: 24px;
+        font-size: 16px;
+    }
+
+    .faqItem.active .faqAnswer {
+        padding: 0 24px 24px 24px;
+    }
+
+}
+
+</style>
+
+<script>
+
+document.querySelectorAll(".faqQuestion").forEach(button => {
+    button.addEventListener("click", () => {
+        const item = button.parentElement
+        const isActive = item.classList.contains("active")
+
+        document.querySelectorAll(".faqItem").forEach(i => i.classList.remove("active"))
+
+        if (!isActive) {
+            item.classList.add("active")
+        }
+    })
+})
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="faqSection">
+
+    <div class="faqWrapper">
+
+        <div class="faqIntro">
+            <span class="faqTag">Support</span>
+            <h2>
+                Intelligent
+                <span>Answers</span>
+            </h2>
+        </div>
+
+        <div class="faqGalaxy">
+
+            <div class="faqCore">
+                <div class="faqCoreGlow"></div>
+                <h3 class="faqCoreTitle">Select a question</h3>
+                <p class="faqCoreText">
+                    Choose any question around the orbit to view the answer.
+                </p>
+            </div>
+
+            <div class="faqOrbit">
+
+                <button class="faqNode" data-title="How long does publication take?" data-text="Depending on the journal and peer review process, structured submissions typically take between 4 to 12 weeks including revisions.">
+                    Publication Timeline
+                </button>
+
+                <button class="faqNode" data-title="Do you guarantee acceptance?" data-text="We do not guarantee acceptance, as final decisions rest with editorial boards. However, we optimize formatting, structure, and alignment to maximize approval potential.">
+                    Acceptance Policy
+                </button>
+
+                <button class="faqNode" data-title="Do you assist with visa documentation?" data-text="Yes. We assist with structured documentation, verification preparation, and submission alignment to reduce processing delays.">
+                    Visa Assistance
+                </button>
+
+                <button class="faqNode" data-title="Do you work globally?" data-text="We collaborate with researchers and institutions across Europe, North America, the Middle East, and Asia.">
+                    Global Reach
+                </button>
+
+                <button class="faqNode" data-title="Is confidentiality ensured?" data-text="All submissions and documentation are handled with strict confidentiality and professional discretion.">
+                    Confidentiality
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+
+.faqSection {
+    padding: 240px 6%;
+    background:
+        radial-gradient(circle at center, rgba(168,85,247,0.15), transparent 55%),
+        linear-gradient(180deg, #04010a 0%, #0c0218 100%);
+    overflow: hidden;
+}
+
+.faqWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.faqIntro {
+    text-align: center;
+    margin-bottom: 140px;
+}
+
+.faqTag {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(232,121,249,0.8);
+}
+
+.faqIntro h2 {
+    font-size: clamp(36px, 6vw, 70px);
+    font-weight: 200;
+    color: #f4eaff;
+    margin-top: 20px;
+}
+
+.faqIntro h2 span {
+    display: block;
+    background: linear-gradient(90deg, #c084fc, #e879f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.faqGalaxy {
+    position: relative;
+    min-height: 700px;
+}
+
+.faqCore {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 520px;
+    padding: 60px;
+    border-radius: 40px;
+    text-align: center;
+    background: rgba(28,10,55,0.65);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(168,85,247,0.35);
+    box-shadow: 0 0 60px rgba(168,85,247,0.25);
+    z-index: 5;
+    transition: all 0.4s ease;
+}
+
+.faqCoreGlow {
+    position: absolute;
+    inset: -70px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(168,85,247,0.35), transparent 70%);
+    filter: blur(90px);
+    z-index: -1;
+}
+
+.faqCoreTitle {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.faqCoreText {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.85);
+}
+
+.faqOrbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 650px;
+    height: 650px;
+    transform: translate(-50%, -50%);
+    animation: rotateOrbit 40s linear infinite;
+}
+
+.faqNode {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    padding: 14px 22px;
+    border-radius: 50px;
+    background: rgba(20,8,40,0.7);
+    border: 1px solid rgba(168,85,247,0.3);
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    backdrop-filter: blur(20px);
+    transition: all 0.4s ease;
+    white-space: nowrap;
+}
+
+.faqNode:hover {
+    background: rgba(168,85,247,0.25);
+    transform: scale(1.1);
+}
+
+.faqNode:nth-child(1) { transform: rotate(0deg) translate(320px) rotate(0deg); }
+.faqNode:nth-child(2) { transform: rotate(72deg) translate(320px) rotate(-72deg); }
+.faqNode:nth-child(3) { transform: rotate(144deg) translate(320px) rotate(-144deg); }
+.faqNode:nth-child(4) { transform: rotate(216deg) translate(320px) rotate(-216deg); }
+.faqNode:nth-child(5) { transform: rotate(288deg) translate(320px) rotate(-288deg); }
+
+@keyframes rotateOrbit {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@media (max-width: 900px) {
+
+    .faqGalaxy {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        min-height: auto;
+    }
+
+    .faqCore,
+    .faqOrbit {
+        position: relative;
+        transform: none;
+        width: 100%;
+        height: auto;
+    }
+
+    .faqOrbit {
+        animation: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .faqNode {
+        position: relative;
+        transform: none !important;
+    }
+
+}
+
+</style>
+
+<script>
+
+const nodes = document.querySelectorAll(".faqNode")
+const coreTitle = document.querySelector(".faqCoreTitle")
+const coreText = document.querySelector(".faqCoreText")
+
+nodes.forEach(node => {
+    node.addEventListener("click", () => {
+        nodes.forEach(n => n.style.opacity = "0.3")
+        node.style.opacity = "1"
+
+        coreTitle.textContent = node.dataset.title
+        coreText.textContent = node.dataset.text
+    })
+})
+
+</script>

@@ -1,0 +1,3087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paullite | Research & Publication Experts</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.7/build/js/intlTelInput.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.7/build/js/utils.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+<header class="commandHeader">
+
+    <div class="headerGlow"></div>
+
+    <div class="headerInner">
+
+        <div class="brand magneticLogo">
+            <img src="assets/images/headerlogo.png" alt="Palvora Global Logo" class="brandLogo">
+        </div>
+
+        <nav class="navDock">
+            <div class="navIndicator"></div>
+
+            <a href="#" class="navItem active">Home</a>
+            <a href="#" class="navItem">About</a>
+            <a href="#" class="navItem">Services</a>
+            <a href="#" class="navItem">Publications</a>
+            <a href="#" class="navItem">FAQ</a>
+
+        </nav>
+
+        <a href="#" class="commandCTA">
+            Consult Us
+            <span class="ctaGlow"></span>
+        </a>
+
+    </div>
+
+</header>
+
+<style>
+
+.commandHeader{
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:92%;
+    max-width:1400px;
+    z-index:2000;
+    transition:.4s cubic-bezier(.16,1,.3,1);
+}
+
+.commandHeader.shrink{
+    top:10px;
+    transform:translateX(-50%) scale(.96);
+}
+
+.headerInner{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 28px;
+    border-radius:80px;
+    background:rgba(255,255,255,.65);
+    backdrop-filter:blur(30px);
+    border:1px solid rgba(124,58,237,.15);
+    box-shadow:
+    0 20px 40px rgba(124,58,237,.08),
+    0 8px 20px rgba(0,0,0,.05);
+}
+
+.headerGlow{
+    position:absolute;
+    inset:-40px;
+    background:radial-gradient(circle at 30% 50%,rgba(124,58,237,.25),transparent 60%),
+               radial-gradient(circle at 70% 50%,rgba(56,189,248,.2),transparent 60%);
+    filter:blur(80px);
+    z-index:-1;
+    opacity:.7;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    cursor:pointer;
+    position:relative;
+    transition:.3s;
+}
+
+.brandLogo{
+    height:48px;
+    width:auto;
+    max-width:180px;
+    /* object-fit:contain; */
+    transition:.3s ease;
+    border: 1px solid red;
+}
+
+.commandHeader.shrink .brandLogo{
+    height:40px;
+}
+
+.navDock{
+    position:relative;
+    display:flex;
+    gap:30px;
+    padding:10px 26px;
+    border-radius:60px;
+    background:rgba(255,255,255,.7);
+    border:1px solid rgba(124,58,237,.1);
+    backdrop-filter:blur(20px);
+}
+
+.navItem{
+    position:relative;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    color:#4b5563;
+    padding:6px 4px;
+    transition:.3s;
+    z-index:2;
+}
+
+.navItem:hover{
+    color:#111827;
+}
+
+.navItem.active{
+    color:#111827;
+}
+
+.navIndicator{
+    position:absolute;
+    height:32px;
+    border-radius:40px;
+    background:linear-gradient(90deg,#7c3aed,#38bdf8);
+    opacity:.15;
+    transition:all .35s cubic-bezier(.16,1,.3,1);
+    z-index:1;
+}
+
+.commandCTA{
+    position:relative;
+    padding:10px 24px;
+    border-radius:40px;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.3px;
+    color:#fff;
+    background:linear-gradient(135deg,#7c3aed,#38bdf8);
+    box-shadow:
+    0 15px 35px rgba(124,58,237,.3);
+    overflow:hidden;
+    transition:.35s;
+}
+
+.commandCTA:hover{
+    transform:translateY(-3px) scale(1.05);
+    box-shadow:
+    0 20px 45px rgba(56,189,248,.4);
+}
+
+.ctaGlow{
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at center,rgba(255,255,255,.4),transparent 70%);
+    opacity:0;
+    transition:.4s;
+}
+
+.commandCTA:hover .ctaGlow{
+    opacity:.6;
+}
+
+@media(max-width:900px){
+
+    .navDock{
+        display:none;
+    }
+
+    .brandLogo{
+        height:42px;
+        max-width:130px;
+    }
+
+    .commandCTA{
+        padding:8px 18px;
+        font-size:12px;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .headerInner{
+        padding:12px 18px;
+    }
+
+    .brandLogo{
+        height:36px;
+        max-width:110px;
+    }
+
+}
+
+</style>
+
+<script>
+
+const header=document.querySelector(".commandHeader")
+const navItems=document.querySelectorAll(".navItem")
+const indicator=document.querySelector(".navIndicator")
+const magneticLogo=document.querySelector(".magneticLogo")
+
+function moveIndicator(el){
+    const rect=el.getBoundingClientRect()
+    const parentRect=el.parentElement.getBoundingClientRect()
+    indicator.style.width=rect.width+"px"
+    indicator.style.left=(rect.left-parentRect.left)+"px"
+    indicator.style.top=(rect.top-parentRect.top)+"px"
+}
+
+navItems.forEach(item=>{
+    item.addEventListener("click",e=>{
+        navItems.forEach(i=>i.classList.remove("active"))
+        item.classList.add("active")
+        moveIndicator(item)
+    })
+})
+
+window.addEventListener("load",()=>{
+    const active=document.querySelector(".navItem.active")
+    if(active) moveIndicator(active)
+})
+
+window.addEventListener("resize",()=>{
+    const active=document.querySelector(".navItem.active")
+    if(active) moveIndicator(active)
+})
+
+window.addEventListener("scroll",()=>{
+    header.classList.toggle("shrink",window.scrollY>60)
+})
+
+magneticLogo.addEventListener("mousemove",e=>{
+    const r=magneticLogo.getBoundingClientRect()
+    const x=(e.clientX-r.left-r.width/2)*.08
+    const y=(e.clientY-r.top-r.height/2)*.08
+    magneticLogo.style.transform=`translate(${x}px,${y}px)`
+})
+
+magneticLogo.addEventListener("mouseleave",()=>{
+    magneticLogo.style.transform=""
+})
+
+</script>
+
+
+
+
+
+
+<section class="heroSectionWrapper">
+
+    <div class="heroFramework">
+
+        <div class="heroTopMeta">
+            <div class="heroMetaLine"></div>
+            <span>Strategic Academic Positioning</span>
+        </div>
+
+        <h1 class="heroMainTitle">
+            Research that commands
+            <span>global authority.</span>
+        </h1>
+
+        <p class="heroSmallText">
+            From manuscript refinement to strategic journal indexing, we engineer positioning that earns citations, visibility, and international academic recognition.
+        </p>
+
+        <div class="heroCTAZone">
+            <a href="#" class="heroPrimaryButton">
+                Start Your Strategy Session
+                <i class="ri-arrow-right-line"></i>
+            </a>
+        </div>
+
+        <div class="heroOrbitalVisual">
+            <div class="orbitalGlow"></div>
+            <div class="orbitRing ringOne"></div>
+            <div class="orbitRing ringTwo"></div>
+
+            <img src="assets/images/Hero2.png" alt="Global Research Positioning">
+
+            <div class="statPillar statLeft">
+                <h3>150+</h3>
+                <span>Manuscripts Engineered</span>
+            </div>
+
+            <div class="statPillar statRight">
+                <h3>98%</h3>
+                <span>Journal Precision Success</span>
+            </div>
+
+            <div class="glassCard glassOne">
+                <h4>Global Indexing</h4>
+                <p>Scopus • Web of Science</p>
+            </div>
+
+            <div class="glassCard glassTwo">
+                <h4>Citation Growth</h4>
+                <p>Strategic Visibility Mapping</p>
+            </div>
+
+            <div class="glassCard glassThree">
+                <h4>Editorial Alignment</h4>
+                <p>Precision Journal Targeting</p>
+            </div>
+
+            <div class="glassCard glassFour">
+                <h4>Impact Positioning</h4>
+                <p>Authority Structuring</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+
+.heroSectionWrapper{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:170px 6% 130px;
+    position:relative;
+    overflow:hidden;
+    background:radial-gradient(circle at 20% 10%,rgba(30,107,255,0.08),transparent 40%);
+}
+
+.heroSectionWrapper::before{
+    content:"";
+    position:absolute;
+    width:1100px;
+    height:1100px;
+    background:radial-gradient(circle at 50% 40%,rgba(30,107,255,0.15),transparent 65%);
+    filter:blur(150px);
+    z-index:-2;
+}
+
+.heroFramework{
+    max-width:1150px;
+    text-align:center;
+    position:relative;
+}
+
+.heroTopMeta{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:14px;
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.6);
+    margin-bottom:40px;
+}
+
+.heroMetaLine{
+    width:45px;
+    height:1px;
+    background:linear-gradient(90deg,#1E6BFF,#00C2FF);
+}
+
+.heroMainTitle{
+    font-size:clamp(46px,6vw,76px);
+    line-height:1.02;
+    font-weight:900;
+    letter-spacing:-2.5px;
+    max-width:900px;
+    margin:0 auto;
+}
+
+.heroMainTitle span{
+    display:block;
+    background:linear-gradient(95deg,#1E6BFF,#00C2FF 60%,#4DA3FF);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.heroSmallText{
+    margin:45px auto 0;
+    max-width:760px;
+    font-size:18px;
+    line-height:1.7;
+    color:rgba(255,255,255,0.75);
+}
+
+.heroCTAZone{
+    margin-top:70px;
+}
+
+.heroPrimaryButton{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:20px 52px;
+    border-radius:60px;
+    background:linear-gradient(100deg,#1E6BFF,#00C2FF);
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:15px;
+    letter-spacing:.5px;
+    transition:.4s ease;
+    box-shadow:0 25px 70px rgba(30,107,255,0.35);
+}
+
+.heroPrimaryButton:hover{
+    transform:translateY(-6px) scale(1.05);
+    box-shadow:0 40px 100px rgba(30,107,255,0.5);
+}
+
+.heroOrbitalVisual{
+    margin-top:120px;
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.heroOrbitalVisual img{
+    width:600px;
+    max-width:100%;
+    border-radius:400px;
+    position:relative;
+    z-index:5;
+    animation:floatMain 9s ease-in-out infinite;
+}
+
+.orbitalGlow{
+    position:absolute;
+    width:750px;
+    height:750px;
+    background:radial-gradient(circle,rgba(0,194,255,0.25),transparent 70%);
+    filter:blur(160px);
+    z-index:1;
+}
+
+.orbitRing{
+    position:absolute;
+    border-radius:50%;
+    border:1px solid rgba(15, 87, 194, 0.729);
+    animation:rotateRing 40s linear infinite;
+}
+
+.ringOne{
+    width:720px;
+    height:720px;
+}
+
+.ringTwo{
+    width:820px;
+    height:820px;
+    animation-direction:reverse;
+    opacity:.5;
+}
+
+.statPillar{
+    position:absolute;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(50px);
+    border:1px solid rgba(255,255,255,0.15);
+    padding:22px 28px;
+    border-radius:26px;
+    width:210px;
+    text-align:left;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    z-index:6;
+    animation:floatSoft 6s ease-in-out infinite;
+}
+
+.statPillar h3{
+    font-size:30px;
+    font-weight:800;
+    background:linear-gradient(95deg,#1E6BFF,#00C2FF);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.statPillar span{
+    font-size:13px;
+    color:rgba(255,255,255,0.75);
+    display:block;
+    margin-top:8px;
+}
+
+.statLeft{ top:20%; left:-120px; animation-delay:1s; }
+.statRight{ bottom:18%; right:-120px; animation-delay:2s; }
+
+.glassCard{
+    position:absolute;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(60px);
+    border:1px solid rgba(255, 255, 255, 0.15);
+    border-radius:22px;
+    padding:16px 20px;
+    width:190px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.45);
+    z-index:4;
+    animation:floatSoft 7s ease-in-out infinite;
+}
+
+.glassCard h4{
+    font-size:14px;
+    font-weight:600;
+    color:#fff;
+}
+
+.glassCard p{
+    font-size:12px;
+    margin-top:6px;
+    color:rgba(255, 255, 255, 0.65);
+}
+
+.glassOne{ top:5%; right:-90px; animation-delay:1.5s; }
+.glassTwo{ bottom:5%; left:-90px; animation-delay:2.5s; }
+.glassThree{ top:45%; left:-170px; animation-delay:3s; }
+.glassFour{ bottom:40%; right:-170px; animation-delay:3.5s; }
+
+@keyframes floatMain{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-35px)}
+}
+
+@keyframes floatSoft{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-18px)}
+}
+
+@keyframes rotateRing{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+}
+
+@media(max-width:1400px){
+    .glassThree,
+    .glassFour{display:none}
+}
+
+@media(max-width:1024px){
+    .statLeft,
+    .statRight,
+    .glassOne,
+    .glassTwo{
+        position:relative;
+        left:auto;
+        right:auto;
+        top:auto;
+        bottom:auto;
+        margin:20px auto 0;
+        display:block;
+    }
+    .heroOrbitalVisual{
+        flex-direction:column;
+    }
+}
+
+@media(max-width:650px){
+    .heroSectionWrapper{padding-top:130px}
+    .heroMainTitle{
+        font-size:clamp(34px,8vw,48px);
+        letter-spacing:-1.5px;
+    }
+    .heroSmallText{font-size:15px}
+    .heroPrimaryButton{
+        padding:16px 32px;
+        font-size:14px;
+    }
+    .glassTwo{display:none}
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+<!-- Who we are Section -->
+ <section class="aboutSectionWrapper">
+
+    <div class="aboutGridLines"></div>
+
+    <div class="aboutHeader">
+        <div class="aboutMicroLabel">
+            <span></span>
+            Who we are & why sholar trust us
+        </div>
+
+        <h2 class="aboutTitle">
+            We architect publication outcomes
+            with structured precision.
+        </h2>
+
+        <p class="aboutIntro">
+            A refined framework built for professors, principal investigators, and doctoral researchers who demand methodological clarity, strategic alignment, and uncompromising academic integrity.
+        </p>
+    </div>
+
+    <div class="aboutLayers">
+
+        <div class="aboutLayer layerOne">
+            <div class="layerInner">
+                <div class="layerNumber">01</div>
+                <div class="layerAccent"></div>
+                <div class="layerContent">
+                    Structured manuscript refinement with documented revision pathways, ensuring coherence from hypothesis articulation to final reviewer response.
+                </div>
+            </div>
+        </div>
+
+        <div class="aboutLayer layerTwo">
+            <div class="layerInner">
+                <div class="layerNumber">02</div>
+                <div class="layerAccent"></div>
+                <div class="layerContent">
+                    Strategic journal targeting engineered to protect scope accuracy and reduce submission inefficiencies by up to <span>$2,000+</span> per cycle.
+                </div>
+            </div>
+        </div>
+
+        <div class="aboutLayer layerThree">
+            <div class="layerInner">
+                <div class="layerNumber">03</div>
+                <div class="layerAccent"></div>
+                <div class="layerContent">
+                    Discipline-calibrated editorial systems — never generic templates — aligned with indexing standards, impact metrics, and reviewer expectations.
+                </div>
+            </div>
+        </div>
+
+        <div class="aboutLayer layerFour">
+            <div class="layerInner">
+                <div class="layerNumber">04</div>
+                <div class="layerAccent"></div>
+                <div class="layerContent">
+                    Confidential collaboration models that preserve authorship authority while strengthening analytical structure and publication resilience.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+
+.aboutSectionWrapper {
+    position: relative;
+    padding: clamp(160px, 15vw, 240px) 8%;
+    /* background: #0A0F18; */
+    color: #E8EDF5;
+    overflow: hidden;
+}
+
+.aboutGridLines {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 120px 120px;
+    mask-image: radial-gradient(circle at 50% 30%, black 30%, transparent 75%);
+    pointer-events: none;
+}
+
+.aboutHeader {
+    max-width: 820px;
+    margin-bottom: clamp(90px, 10vw, 150px);
+    position: relative;
+    z-index: 2;
+}
+
+.aboutMicroLabel {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.45;
+    margin-bottom: 30px;
+}
+
+.aboutMicroLabel span {
+    width: 36px;
+    height: 1px;
+    background: linear-gradient(90deg,#1E6BFF,transparent);
+}
+
+.aboutTitle {
+    font-size: clamp(36px,4.5vw,60px);
+    line-height: 1.08;
+    font-weight: 500;
+    letter-spacing: -0.6px;
+    margin-bottom: 28px;
+}
+
+.aboutIntro {
+    font-size: clamp(16px,1.1vw,18px);
+    line-height: 1.8;
+    opacity: 0.65;
+    max-width: 720px;
+}
+
+.aboutLayers {
+    position: relative;
+    z-index: 2;
+}
+
+.aboutLayer {
+    position: relative;
+    margin-bottom: -60px;
+}
+
+.layerInner {
+    position: relative;
+    padding: clamp(60px,6vw,100px);
+    border: 1px solid rgba(255,255,255,0.06);
+    background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+    backdrop-filter: blur(12px);
+    transition: transform .6s cubic-bezier(.19,1,.22,1), box-shadow .6s cubic-bezier(.19,1,.22,1);
+}
+
+.aboutLayer:hover .layerInner {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.4);
+}
+
+.layerAccent {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom,#1E6BFF,#00C2FF);
+    opacity: 0.8;
+}
+
+.layerNumber {
+    position: absolute;
+    top: 24px;
+    right: 50px;
+    font-size: clamp(80px,10vw,170px);
+    font-weight: 800;
+    letter-spacing: -4px;
+    color: rgba(255,255,255,0.04);
+    pointer-events: none;
+}
+
+.layerContent {
+    position: relative;
+    max-width: 640px;
+    font-size: clamp(16px,1.1vw,18px);
+    line-height: 1.85;
+    opacity: 0.85;
+}
+
+.layerContent span {
+    font-weight: 600;
+    background: linear-gradient(90deg,#1E6BFF,#00C2FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.layerOne { transform: translateX(0); z-index: 4; }
+.layerTwo { transform: translateX(50px); z-index: 3; }
+.layerThree { transform: translateX(100px); z-index: 2; }
+.layerFour { transform: translateX(150px); z-index: 1; }
+
+@media (max-width: 1100px) {
+
+    .layerTwo,
+    .layerThree,
+    .layerFour {
+        transform: translateX(40px);
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .aboutSectionWrapper {
+        padding: 120px 6%;
+    }
+
+    .aboutHeader {
+        margin-bottom: 70px;
+    }
+
+    .aboutLayers {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .aboutLayer {
+        margin-bottom: 0;
+        transform: none !important;
+    }
+
+    .layerInner {
+        padding: 40px 25px;
+    }
+
+    .layerAccent {
+        width: 2px;
+    }
+
+    .layerNumber {
+        font-size: 48px;
+        top: 18px;
+        right: 20px;
+        color: rgba(255,255,255,0.08);
+    }
+
+    .layerContent {
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="servicesSection">
+
+    <div class="servicesHeaderWrapper">
+
+        <div class="servicesHeaderLabel">
+            <div class="servicesHeaderLine"></div>
+            <span>Strategic Support Architecture</span>
+        </div>
+
+        <div class="servicesHeaderContent">
+            <div class="servicesHeaderLeft">
+                <h2 class="servicesMainTitle">
+                    We don’t offer services.<br>
+                    We design <span>precision academic pathways</span>.
+                </h2>
+            </div>
+
+            <div class="servicesHeaderRight">
+                <p>
+                    Every researcher requires a different structure.
+                    Instead of packages, we engineer aligned support systems —
+                    built around your discipline, publication target, and long-term academic positioning.
+                </p>
+            </div>
+        </div>
+
+        <div class="servicesHeaderFrame"></div>
+
+    </div>
+
+    <div class="servicesGrid">
+
+        <div class="serviceCard servicePrimary">
+            <h3>Research Writing</h3>
+            <p>Structured, publication-ready research aligned with academic standards and reviewer expectations.</p>
+        </div>
+
+        <div class="serviceCard">
+            <h3>Manuscript Formatting</h3>
+            <p>Precise journal-compliant formatting, referencing systems, and structural alignment.</p>
+        </div>
+
+        <div class="serviceCard">
+            <h3>Publication to Indexed Journals</h3>
+            <p>Submission strategy, journal targeting, reviewer response guidance, and compliance checks.</p>
+        </div>
+
+        <div class="serviceCard">
+            <h3>Citation Growth Strategy</h3>
+            <p>Ethical visibility enhancement and structured citation positioning.</p>
+        </div>
+
+        <div class="serviceCard">
+            <h3>Visa Applicant Support</h3>
+            <p>Documentation structuring, compliance review, and application preparation guidance.</p>
+        </div>
+
+        <div class="servicesNarrative">
+            <p>
+                You don’t need everything — only the right structure.
+                We assess your objective and architect the exact support layer required.
+            </p>
+            <button class="servicesCTA">Find the Right Structure →</button>
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+
+.servicesSection {
+    padding: 160px 7% 140px 7%;
+    position: relative;
+    overflow: hidden;
+}
+
+.servicesSection::before {
+    content: "";
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle at 20% 30%, rgba(30,107,255,0.18), transparent 65%);
+    top: -300px;
+    left: -300px;
+    filter: blur(150px);
+    z-index: 0;
+}
+
+.servicesHeaderWrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin-bottom: 140px;
+}
+
+.servicesHeaderLabel {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 50px;
+}
+
+.servicesHeaderLine {
+    width: 28px;
+    height: 28px;
+    border-left: 1px solid rgba(30,107,255,0.9);
+    border-top: 1px solid rgba(30,107,255,0.9);
+}
+
+.servicesHeaderContent {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 100px;
+    align-items: end;
+}
+
+.servicesMainTitle {
+    font-size: clamp(36px, 4.5vw, 64px);
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.servicesMainTitle span {
+    background: linear-gradient(95deg, #1E6BFF, #00C2FF 60%, #4DA3FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.servicesHeaderRight p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.75);
+    max-width: 420px;
+}
+
+.servicesHeaderFrame {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 60%;
+    height: 120%;
+    border: 1px solid rgba(30,107,255,0.15);
+    border-radius: 40px;
+    pointer-events: none;
+}
+
+.servicesGrid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+}
+
+.serviceCard {
+    padding: 42px;
+    border-radius: 30px;
+    background: linear-gradient(
+        160deg,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.015)
+    );
+    backdrop-filter: blur(35px);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.8);
+    transition: transform 0.45s cubic-bezier(.19,1,.22,1),
+                border 0.3s ease,
+                box-shadow 0.4s ease;
+}
+
+.serviceCard:hover {
+    transform: translateY(-12px);
+    border: 1px solid rgba(30,107,255,0.5);
+    box-shadow: 0 30px 80px rgba(30,107,255,0.15);
+}
+
+.servicePrimary {
+    background: linear-gradient(
+        145deg,
+        rgba(30,107,255,0.9),
+        rgba(10,22,51,1)
+    );
+    border: 1px solid rgba(30,107,255,0.6);
+    box-shadow: 0 35px 90px rgba(30,107,255,0.3);
+}
+
+.serviceCard h3 {
+    font-size: 22px;
+    margin-bottom: 18px;
+    font-weight: 700;
+}
+
+.serviceCard p {
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+.servicesNarrative {
+    padding: 42px;
+    border-radius: 30px;
+    border: 1px solid rgba(30,107,255,0.25);
+    background: rgba(10,22,51,0.7);
+}
+
+.servicesNarrative p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.75);
+}
+
+.servicesCTA {
+    margin-top: 26px;
+    padding: 14px 28px;
+    border-radius: 50px;
+    background: linear-gradient(95deg, #1E6BFF, #00C2FF);
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicesCTA:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(30,107,255,0.4);
+}
+
+@media (max-width: 1100px) {
+
+    .servicesHeaderContent {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .servicesHeaderFrame {
+        display: none;
+    }
+
+    .servicesGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .servicesGrid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .servicesSection {
+        padding: 120px 7%;
+    }
+
+}
+
+</style>
+
+
+
+
+
+
+
+<section class="impactSection">
+
+    <div class="impactContainer">
+
+        <div class="impactIntro">
+            <p class="impactTag">Strategic Academic Infrastructure</p>
+
+            <h2 class="impactHeadline">
+                Custom structured, performance-focused
+                <span>academic and mobility solutions.</span>
+            </h2>
+
+            <div class="impactDivider"></div>
+        </div>
+
+        <div class="impactColumns">
+
+            <div class="impactBlock">
+                <span class="impactNumber">01</span>
+                <h4>The Gap</h4>
+                <p>
+                    Many researchers and applicants struggle with fragmented guidance,
+                    unclear formatting standards, low publication visibility,
+                    citation stagnation, and complex visa documentation processes.
+                </p>
+            </div>
+
+            <div class="impactBlock">
+                <span class="impactNumber">02</span>
+                <h4>Our Framework</h4>
+                <p>
+                    We design structured pathways including precision research writing,
+                    journal-compliant manuscript formatting, indexed publication strategy,
+                    citation positioning.
+                </p>
+            </div>
+
+            <div class="impactBlock">
+                <span class="impactNumber">03</span>
+                <h4>Measured Outcome</h4>
+                <p>
+                    Higher publication acceptance rates, stronger academic positioning,
+                    improved citation trajectory, and structured mobility transitions
+                    executed with institutional compliance.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+.impactSection {
+    position: relative;
+    padding: 220px 6%;
+    border-top-right-radius: 150px;
+    border-bottom-left-radius: 150px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(56, 62, 248, 0.386), transparent 45%),
+        radial-gradient(circle at 80% 70%, rgba(168,85,247,0.22), transparent 50%),
+        radial-gradient(circle at 50% -10%, rgba(125,211,252,0.12), transparent 60%),
+        linear-gradient(160deg, #070b1f 0%, #0b0f2a 35%, #090625 65%, #05030c 100%);
+}
+
+.impactSection::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(168,85,247,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(168,85,247,0.05) 1px, transparent 1px);
+    background-size: 90px 90px;
+    opacity: 0.2;
+}
+
+.impactSection::after {
+    content: "";
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    background: radial-gradient(circle, rgba(168,85,247,0.18), transparent 60%);
+    top: -350px;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: blur(160px);
+}
+
+.impactContainer {
+    position: relative;
+    z-index: 2;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.impactIntro {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto 170px auto;
+}
+
+.impactTag {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(200,150,255,0.6);
+    margin-bottom: 30px;
+}
+
+.impactHeadline {
+    font-size: clamp(30px, 6vw, 60px);
+    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: -1.2px;
+    color: #f5ecff;
+}
+
+.impactHeadline span {
+    background: linear-gradient(90deg, #bf58ff, #437fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.impactDivider {
+    width: 140px;
+    height: 2px;
+    margin: 70px auto 0 auto;
+    background: linear-gradient(90deg, transparent, #a855f7, #e879f9, transparent);
+    box-shadow: 0 0 25px rgba(168,85,247,0.6);
+}
+
+.impactColumns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 120px;
+}
+
+.impactBlock {
+    padding: 55px 50px;
+    border-radius: 24px;
+    background: rgba(30, 10, 50, 0.35);
+    backdrop-filter: blur(22px);
+    border: 1px solid rgba(85, 128, 247, 0.18);
+    transition: all 0.5s ease;
+}
+
+.impactBlock:hover {
+    transform: translateY(-12px);
+    border-color: rgba(121, 142, 249, 0.6);
+    box-shadow: 0 35px 90px rgba(168,85,247,0.3);
+}
+
+.impactNumber {
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: #00C2FF;
+    display: block;
+    margin-bottom: 24px;
+}
+
+.impactBlock h4 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 28px;
+    background: linear-gradient(90deg, #c084fc, #e879f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.impactBlock p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: rgba(245,236,255,0.85);
+}
+
+@media (max-width: 1100px) {
+    .impactColumns {
+        grid-template-columns: 1fr;
+        gap: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .impactSection {
+        padding: 150px 6%;
+    }
+
+    .impactIntro {
+        margin-bottom: 110px;
+    }
+
+    .impactHeadline {
+        font-size: 34px;
+        line-height: 1.2;
+    }
+
+    .impactBlock {
+        padding: 35px;
+    }
+
+    .impactBlock h4 {
+        font-size: 20px;
+    }
+
+    .impactBlock p {
+        font-size: 14px;
+    }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+<section class="leadershipSection">
+
+    <div class="leadershipWrapper">
+
+        <div class="leadershipIntro">
+            <span class="leadershipTag">Leadership</span>
+            <h2>
+                The minds shaping <span>academic precision and global mobility.</span>
+            </h2>
+            <div class="leadershipLine"></div>
+        </div>
+
+        <div class="leadershipLayout">
+
+            <!-- Featured Director (UNCHANGED) -->
+            <div class="leadershipFeatured">
+                <div class="leadershipImage">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Director">
+                </div>
+                <div class="leadershipContent">
+                    <h3>Dr. Arman Virelli</h3>
+                    <span>Founder & Academic Director</span>
+                    <p>
+                        Leads strategic research positioning, publication architecture,
+                        and institutional partnerships across international academic ecosystems.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Secondary Leaders (Enhanced Structure) -->
+            <div class="leadershipSide">
+
+                <div class="leadershipCard">
+                    <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=800&auto=format&fit=crop" alt="Director">
+                    <div>
+                        <h4>Dr. Liana Kovacs</h4>
+                        <span>Head of Publication Strategy</span>
+                    </div>
+                </div>
+
+                <div class="leadershipCard offsetCard">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Director">
+                    <div>
+                        <h4>Michael Rahman</h4>
+                        <span>Director of Mobility Compliance</span>
+                    </div>
+                </div>
+
+                <div class="leadershipCard shiftLeft">
+                    <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=800&auto=format&fit=crop" alt="Director">
+                    <div>
+                        <h4>Dr. Sofia Ionescu</h4>
+                        <span>Research Development Lead</span>
+                    </div>
+                </div>
+
+                <div class="leadershipCard shiftRight">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop" alt="Director">
+                    <div>
+                        <h4>Daniel Moretti</h4>
+                        <span>International Relations Advisor</span>
+                    </div>
+                </div>
+
+                <div class="leadershipCard shiftLeft">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" alt="Director">
+                    <div>
+                        <h4>Isabella Marino</h4>
+                        <span>Global Academic Partnerships</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+
+.leadershipSection {
+    position: relative;
+    padding: 220px 6%;
+    overflow: hidden;
+}
+
+.leadershipWrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.leadershipIntro {
+    max-width: 700px;
+    margin-bottom: 120px;
+}
+
+.leadershipTag {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgb(183, 121, 249);
+}
+
+.leadershipIntro h2 {
+    font-size: clamp(30px, 6vw, 60px);
+    line-height: 1.1;
+    font-weight: 600;
+    color: #f6ecff;
+    margin: 20px 0 40px;
+}
+
+.leadershipIntro h2 span {
+    background: linear-gradient(90deg,  #1E6BFF, #00C2FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.leadershipLine {
+    height: 2px;
+    width: 140px;
+    background: linear-gradient(90deg, #8655f7, transparent);
+}
+
+
+.leadershipLayout {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 120px;
+    align-items: center;
+}
+
+
+.leadershipFeatured {
+    position: relative;
+}
+
+.leadershipImage {
+    overflow: hidden;
+    border-radius: 28px;
+}
+
+.leadershipImage img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.leadershipFeatured:hover img {
+    transform: scale(1.05);
+}
+
+.leadershipContent {
+    position: absolute;
+    bottom: -60px;
+    left: 60px;
+    background: rgba(30,10,50,0.6);
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(169, 85, 247, 0.461);
+    max-width: 420px;
+}
+
+.leadershipContent h3 {
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.leadershipContent span {
+    font-size: 14px;
+    color:  #169eff;
+    font-weight: 600;
+}
+
+.leadershipContent p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.8);
+    margin-top: 15px;
+}
+
+/* Side Cards */
+
+.leadershipSide {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.leadershipSide::before {
+    content: "";
+    position: absolute;
+    left: 25px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+        180deg,
+        rgba(168,85,247,0.4),
+        rgba(168,85,247,0.05)
+    );
+    opacity: 0.4;
+}
+
+.leadershipCard {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: rgba(25,10,45,0.4);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(169, 85, 247, 0.568);
+    transition: all 0.4s ease;
+}
+
+.leadershipCard img {
+    width: 110px;
+    height: 110px;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+.leadershipCard h4 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.leadershipCard span {
+    font-size: 13px;
+    color: rgba(232,121,249,0.8);
+}
+
+.leadershipCard:hover {
+    transform: translateY(-6px);
+    border-color: rgba(232,121,249,0.6);
+}
+
+/* Offsets */
+
+.offsetCard {
+    margin-left: 60px;
+}
+
+.shiftLeft {
+    margin-left: -40px;
+}
+
+.shiftRight {
+    margin-left: 70px;
+}
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+
+    .leadershipLayout {
+        grid-template-columns: 1fr;
+        gap: 80px;
+    }
+
+    .leadershipContent {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin-top: -60px;
+    }
+
+    .offsetCard,
+    .shiftLeft,
+    .shiftRight {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .leadershipSection {
+        padding: 140px 6%;
+    }
+
+    .leadershipImage img {
+        height: 400px;
+    }
+
+    .leadershipCard {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+</style>
+
+
+
+
+
+
+
+<section class="trustSection">
+
+    <div class="trustWrapper">
+
+        <div class="trustIntro">
+            <span class="trustTag">Reputation</span>
+            <h2>
+                Trust is not displayed.
+                <span>It is experienced.</span>
+            </h2>
+        </div>
+
+        <div class="trustAtmosphere">
+
+            <div class="trustCore">
+                <div class="coreGlow"></div>
+                <h3>Global Academic Confidence</h3>
+                <p>
+                    We work closely with researchers and institutions worldwide,
+                    guiding submissions and mobility processes step by step.
+                </p>
+            </div>
+
+            <div class="trustFragment fragmentOne">
+                <p>
+                    “We were facing repeated journal rejections.
+                    After their guidance, our next paper was accepted.
+                    Clear advice, no confusion.”
+                </p>
+                <div class="reviewMeta">
+                    <img src="https://flagcdn.com/w40/de.png" alt="Germany">
+                    <span>Dr. Helena Weiss</span>
+                </div>
+            </div>
+
+            <div class="trustFragment fragmentTwo">
+                <p>
+                    “They organised all our visa documents properly.
+                    Everything went smoothly and stress-free.”
+                </p>
+                <div class="reviewMeta">
+                    <img src="https://flagcdn.com/w40/gb.png" alt="UK">
+                    <span>Michael Grant</span>
+                </div>
+            </div>
+
+            <div class="trustFragment fragmentThree">
+                <p>
+                    “They truly understand indexing standards.
+                    Their feedback was practical and easy to apply.”
+                </p>
+                <div class="reviewMeta">
+                    <img src="https://flagcdn.com/w40/ae.png" alt="UAE">
+                    <span>Prof. Nadia Rahman</span>
+                </div>
+            </div>
+
+            <div class="trustFragment fragmentFour">
+                <p>
+                    “Very professional and responsive.
+                    I would confidently recommend them to colleagues.”
+                </p>
+                <div class="reviewMeta">
+                    <img src="https://flagcdn.com/w40/ca.png" alt="Canada">
+                    <span>Daniel Moretti</span>
+                </div>
+            </div>
+
+            <div class="trustRing">
+                <div class="ringStroke"></div>
+                <div class="ringGlow"></div>
+
+                <div class="ringItem" style="--i:0"><img src="https://flagcdn.com/w40/de.png" alt=""></div>
+                <div class="ringItem" style="--i:1"><img src="https://flagcdn.com/w40/gb.png" alt=""></div>
+                <div class="ringItem" style="--i:2"><img src="https://flagcdn.com/w40/ae.png" alt=""></div>
+                <div class="ringItem" style="--i:3"><img src="https://flagcdn.com/w40/ca.png" alt=""></div>
+                <div class="ringItem" style="--i:4"><img src="https://flagcdn.com/w40/us.png" alt=""></div>
+                <div class="ringItem" style="--i:5"><img src="https://flagcdn.com/w40/sg.png" alt=""></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+
+.trustSection {
+    padding: 240px 6%;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(56,189,248,0.18), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(99,102,241,0.12), transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, #f7fbff 45%, #eef6ff 100%);
+}
+
+.trustWrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.trustIntro {
+    text-align: center;
+    margin-bottom: 160px;
+}
+
+.trustTag {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(56,189,248,0.8);
+}
+
+.trustIntro h2 {
+    font-size: clamp(30px, 6vw, 60px);
+    font-weight: 600;
+    color: #0f172a;
+    margin-top: 20px;
+}
+
+.trustIntro h2 span {
+    display: block;
+    background: linear-gradient(90deg, #38bdf8, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.trustAtmosphere {
+    position: relative;
+    min-height: 800px;
+}
+
+.trustCore {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 520px;
+    padding: 60px;
+    text-align: center;
+    border-radius: 34px;
+    background: rgba(255,255,255,0.65);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(255,255,255,0.6);
+    box-shadow: 0 20px 60px rgba(56,189,248,0.15);
+    z-index: 5;
+}
+
+.coreGlow {
+    position: absolute;
+    inset: -80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56,189,248,0.25), transparent 70%);
+    filter: blur(120px);
+    z-index: -1;
+}
+
+.trustCore h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+.trustCore p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(15,23,42,0.75);
+}
+
+.trustFragment {
+    position: absolute;
+    width: 300px;
+    padding: 28px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(35px);
+    border: 1px solid rgba(255,255,255,0.7);
+    box-shadow: 0 15px 40px rgba(56,189,248,0.12);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.trustFragment:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 60px rgba(56,189,248,0.2);
+}
+
+.trustFragment p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    color: rgba(15,23,42,0.8);
+}
+
+.reviewMeta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.reviewMeta img {
+    width: 24px;
+    height: 16px;
+    border-radius: 3px;
+}
+
+.reviewMeta span {
+    font-size: 13px;
+    color: #2563eb;
+}
+
+.fragmentOne { top: 8%; left: 6%; }
+.fragmentTwo { top: 10%; right: 6%; }
+.fragmentThree { bottom: 8%; left: 8%; }
+.fragmentFour { bottom: 10%; right: 8%; }
+
+.trustRing {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 650px;
+    height: 650px;
+    transform: translate(-50%, -50%);
+}
+
+.ringStroke {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(56,189,248,0.35);
+    animation: spinSlow 50s linear infinite;
+}
+
+.ringGlow {
+    position: absolute;
+    inset: -25px;
+    border-radius: 50%;
+    border: 1px solid rgba(125,211,252,0.4);
+    filter: blur(12px);
+}
+
+.ringItem {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:
+        rotate(calc(60deg * var(--i)))
+        translate(325px)
+        rotate(calc(-60deg * var(--i)));
+}
+
+.ringItem img {
+    width: 30px;
+    height: 20px;
+    border-radius: 4px;
+    box-shadow: 0 6px 16px rgba(56,189,248,0.3);
+}
+
+@keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 1100px) {
+
+    .trustAtmosphere {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        min-height: auto;
+    }
+
+    .trustCore,
+    .trustFragment,
+    .trustRing {
+        position: relative;
+        transform: none;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+    }
+
+    .trustRing {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .ringStroke,
+    .ringGlow {
+        display: none;
+    }
+
+    .ringItem {
+        position: relative;
+        transform: none;
+    }
+
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+<section class="faqSection">
+
+    <div class="faqWrapper">
+
+        <div class="faqIntro">
+            <span class="faqTag">Support</span>
+            <h2>
+                Frequently Asked
+                <span>Questions</span>
+            </h2>
+        </div>
+
+        <div class="faqLayout">
+
+            <div class="faqQuestions">
+                <div class="faqIndicator"></div>
+
+                <button class="faqTrigger active" data-index="0"
+                    data-title="How long does publication take?"
+                    data-text="Depending on journal review cycles and revisions, structured submissions typically take between 4 to 12 weeks. Timelines vary based on editorial feedback and indexing compliance.">
+                    Publication Timeline
+                </button>
+
+                <button class="faqTrigger"
+                    data-index="1"
+                    data-title="Do you guarantee acceptance?"
+                    data-text="We do not guarantee acceptance, as decisions remain with editorial boards. However, we optimize formatting, research structure, and compliance to maximize approval probability.">
+                    Acceptance Policy
+                </button>
+
+                <button class="faqTrigger"
+                    data-index="2"
+                    data-title="Do you assist with visa documentation?"
+                    data-text="Yes. We assist with documentation preparation, verification guidance, and structured submission alignment to reduce delays and errors.">
+                    Visa Assistance
+                </button>
+
+                <button class="faqTrigger"
+                    data-index="3"
+                    data-title="Do you work with global institutions?"
+                    data-text="We collaborate with researchers and academic professionals across Europe, North America, the Middle East, and Asia, adapting to institutional standards accordingly.">
+                    Global Reach
+                </button>
+
+                <button class="faqTrigger"
+                    data-index="4"
+                    data-title="Is confidentiality ensured?"
+                    data-text="All submissions and documentation are handled with strict confidentiality, professional discretion, and secure data handling processes.">
+                    Confidentiality
+                </button>
+
+            </div>
+
+            <div class="faqAnswerPanel">
+                <div class="faqAnswerGlow"></div>
+                <h3 class="faqAnswerTitle">
+                    How long does publication take?
+                </h3>
+                <p class="faqAnswerText">
+                    Depending on journal review cycles and revisions, structured submissions typically take between 4 to 12 weeks. Timelines vary based on editorial feedback and indexing compliance.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+
+.faqSection {
+    padding: 220px 6%;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(168,85,247,0.12), transparent 50%),
+        linear-gradient(180deg, #05010a 0%, #0b0216 100%);
+}
+
+.faqWrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.faqIntro {
+    text-align: center;
+    margin-bottom: 120px;
+}
+
+.faqTag {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(232,121,249,0.8);
+}
+
+.faqIntro h2 {
+    font-size: clamp(30px, 6vw, 60px);
+    font-weight: 600;
+    color: #f4eaff;
+    margin-top: 20px;
+}
+
+.faqIntro h2 span {
+    display: block;
+    background: linear-gradient(90deg, #c084fc, #e879f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.faqLayout {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.faqQuestions {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.faqTrigger {
+    position: relative;
+    padding: 22px 28px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    color: rgba(255,255,255,0.7);
+    font-size: 15px;
+    cursor: pointer;
+    z-index: 2;
+    transition: color 0.4s ease;
+}
+
+.faqTrigger.active {
+    color: #ffffff;
+}
+
+.faqIndicator {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    border-radius: 16px;
+    background: rgba(168,85,247,0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(168,85,247,0.35);
+    transition: transform 0.4s ease;
+    z-index: 1;
+}
+
+.faqAnswerPanel {
+    position: relative;
+    padding: 60px;
+    border-radius: 36px;
+    background: rgba(28,10,55,0.65);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(168,85,247,0.35);
+    box-shadow: 0 0 60px rgba(168,85,247,0.25);
+    min-height: 320px;
+}
+
+.faqAnswerGlow {
+    position: absolute;
+    inset: -60px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(168,85,247,0.25), transparent 70%);
+    filter: blur(90px);
+    z-index: -1;
+}
+
+.faqAnswerTitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    transition: opacity 0.3s ease;
+}
+
+.faqAnswerText {
+    font-size: 15px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.85);
+    transition: opacity 0.3s ease;
+}
+
+@media (max-width: 1000px) {
+
+    .faqLayout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .faqIndicator {
+        display: none;
+    }
+
+    .faqTrigger {
+        padding: 18px 0;
+        border-bottom: 1px solid rgba(168,85,247,0.2);
+    }
+
+}
+
+</style>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const triggers = document.querySelectorAll(".faqTrigger")
+    const indicator = document.querySelector(".faqIndicator")
+    const title = document.querySelector(".faqAnswerTitle")
+    const text = document.querySelector(".faqAnswerText")
+
+    if(!triggers.length) return
+
+    function moveIndicator(element){
+        if(!indicator) return
+        const parent = element.parentElement
+        const offset = element.offsetTop
+        indicator.style.height = element.offsetHeight + "px"
+        indicator.style.transform = "translateY(" + offset + "px)"
+    }
+
+    function activate(trigger){
+        triggers.forEach(t => t.classList.remove("active"))
+        trigger.classList.add("active")
+
+        moveIndicator(trigger)
+
+        title.style.opacity = 0
+        text.style.opacity = 0
+
+        setTimeout(function(){
+            title.textContent = trigger.dataset.title
+            text.textContent = trigger.dataset.text
+            title.style.opacity = 1
+            text.style.opacity = 1
+        },200)
+    }
+
+    const defaultActive = document.querySelector(".faqTrigger.active") || triggers[0]
+    activate(defaultActive)
+
+    triggers.forEach(trigger=>{
+        trigger.addEventListener("click", function(){
+            activate(trigger)
+        })
+    })
+
+    window.addEventListener("resize", function(){
+        const active = document.querySelector(".faqTrigger.active")
+        if(active) moveIndicator(active)
+    })
+
+})
+
+</script>
+
+
+
+
+
+
+
+
+<!-- SUPPORT MODAL SYSTEM -->
+
+<button data-support-trigger class="supportBtnGlass">
+    Talk To Support
+</button>
+
+<style>
+.supportBtnGlass{
+    padding:14px 28px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(10px);
+    color:#fff;
+    font-weight:500;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.supportBtnGlass:hover{
+    background:linear-gradient(90deg,#c084fc,#f472b6);
+    color:#0b0218;
+}
+</style>
+
+
+
+
+<button data-support-trigger class="supportBtnGlass">
+    Talk To Support
+</button>
+
+<style>
+.supportBtnGlass{
+    padding:14px 28px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(10px);
+    color:#fff;
+    font-weight:500;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.supportBtnGlass:hover{
+    background:linear-gradient(90deg,#c084fc,#f472b6);
+    color:#0b0218;
+}
+</style>
+
+
+
+
+
+
+<!-- ADVANCED SUPPORT MODAL -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css"/>
+
+<div class="supportModalOverlay">
+  <div class="supportModal">
+    <button class="supportClose">×</button>
+    <div class="modalInnerScroll">
+
+      <div class="supportHeader">
+        <div class="supportAvatars">
+          <img src="https://i.pravatar.cc/100?img=12">
+          <img src="https://i.pravatar.cc/100?img=32">
+          <img src="https://i.pravatar.cc/100?img=45">
+          <img src="https://i.pravatar.cc/100?img=22">
+          <img src="https://i.pravatar.cc/100?img=18">
+        </div>
+        <h2>Speak With Our Experts</h2>
+        <p>Strategic guidance. Premium execution.</p>
+      </div>
+
+      <div class="formStep stepOne active">
+        <form class="supportForm">
+
+          <div class="field">
+            <input type="text" name="fullname" placeholder="Full Name" required>
+            <span class="error"></span>
+          </div>
+
+          <div class="field">
+            <input type="text" name="country" placeholder="Your Country" required>
+            <span class="error"></span>
+          </div>
+
+          <div class="field">
+            <input id="phone" type="tel" name="whatsapp" placeholder="WhatsApp Number" required>
+            <span class="error"></span>
+          </div>
+
+          <div class="field optional">
+            <input type="text" name="referral" placeholder="Referral Name (Optional)">
+          </div>
+
+          <div class="checkboxWrap">
+            <input type="checkbox" id="directVisit">
+            <label for="directVisit">I discovered this brand directly</label>
+          </div>
+
+          <div class="field">
+            <textarea name="details" placeholder="Explain your needs in detail..." required></textarea>
+            <span class="error"></span>
+          </div>
+
+          <button type="submit" class="submitBtn">Continue</button>
+
+        </form>
+      </div>
+
+      <div class="formStep stepTwo">
+        <h3>Select Delivery Method</h3>
+        <div class="platformButtons">
+          <a class="whatsappBtn" target="_blank">Send via WhatsApp</a>
+          <a class="emailBtn">Send via Email</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+.modalInnerScroll::-webkit-scrollbar{width:0;height:0}
+.modalInnerScroll{scrollbar-width:none}
+
+.supportModalOverlay{
+  position:fixed;
+  inset:0;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  background:radial-gradient(circle at top,#111433,#050510);
+  backdrop-filter:blur(20px);
+  padding:20px;
+  z-index:9999;
+}
+
+.supportModalOverlay.active{display:flex}
+
+.supportModal{
+  width:100%;
+  max-width:520px;
+  max-height:90vh;
+  background:linear-gradient(145deg,rgba(16,18,48,.85),rgba(10,12,35,.9));
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:30px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 60px 150px rgba(0,0,0,.8);
+  animation:modalEnter .5s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes modalEnter{
+  from{opacity:0;transform:translateY(60px) scale(.92)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+.modalInnerScroll{
+  padding:42px;
+  overflow-y:auto;
+  max-height:90vh;
+}
+
+.supportClose{
+  position:absolute;
+  right:22px;
+  top:18px;
+  background:none;
+  border:none;
+  font-size:22px;
+  color:#fff;
+  cursor:pointer;
+  opacity:.6;
+  transition:.3s;
+}
+
+.supportClose:hover{opacity:1;transform:rotate(90deg)}
+
+.supportHeader{text-align:center;margin-bottom:30px}
+
+.supportAvatars{display:flex;justify-content:center;margin-bottom:18px}
+
+.supportAvatars img{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  margin-left:-12px;
+  border:2px solid rgba(255,255,255,.1);
+}
+
+.supportHeader h2{
+  font-size:22px;
+  margin-bottom:8px;
+  background:linear-gradient(90deg,#1E6BFF,#00C2FF);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.supportHeader p{
+  font-size:13px;
+  color:rgba(255,255,255,.55);
+}
+
+.field{margin-bottom:22px;position:relative}
+
+.field input,
+.field textarea{
+  width:100%;
+  padding:16px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.06);
+  background:rgba(255,255,255,.03);
+  color:#fff;
+  font-size:14px;
+  transition:.3s;
+}
+
+.field input:focus,
+.field textarea:focus{
+  outline:none;
+  border-color:#1E6BFF;
+  box-shadow:0 0 0 2px rgba(30,107,255,.25);
+}
+
+.field textarea{resize:none;min-height:110px}
+
+.iti{width:100%}
+
+.error{
+  font-size:11px;
+  color:#ff4d6d;
+  position:absolute;
+  bottom:-15px;
+  left:6px;
+  opacity:0;
+  transition:.2s;
+}
+
+.error.show{opacity:1}
+
+.checkboxWrap{
+  font-size:12px;
+  color:rgba(255,255,255,.6);
+  margin-bottom:24px;
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.submitBtn{
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:22px;
+  background:linear-gradient(90deg,#1E6BFF,#00C2FF);
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.submitBtn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 20px 40px rgba(30,107,255,.4);
+}
+
+.formStep{
+  opacity:0;
+  transform:translateY(20px);
+  pointer-events:none;
+  transition:.5s;
+}
+
+.formStep.active{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+
+.stepTwo{text-align:center}
+
+.platformButtons{
+  display:flex;
+  gap:16px;
+  margin-top:28px;
+}
+
+.platformButtons a{
+  flex:1;
+  padding:15px;
+  border-radius:18px;
+  text-align:center;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
+
+.whatsappBtn{
+  background:#25D366;
+  color:#fff;
+}
+
+.emailBtn{
+  background:linear-gradient(90deg,#1E6BFF,#00C2FF);
+  color:#fff;
+}
+
+.platformButtons a:hover{transform:translateY(-3px)}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js"></script>
+
+<script>
+const overlay=document.querySelector(".supportModalOverlay")
+const closeBtn=document.querySelector(".supportClose")
+const form=document.querySelector(".supportForm")
+const stepOne=document.querySelector(".stepOne")
+const stepTwo=document.querySelector(".stepTwo")
+const whatsappBtn=document.querySelector(".whatsappBtn")
+const emailBtn=document.querySelector(".emailBtn")
+const phoneInput=document.querySelector("#phone")
+const countryInput=document.querySelector("input[name='country']")
+
+const whatsappNumbers={
+  ng:"2347066279531",
+  us:"17066279531",
+  gb:"447000000000",
+  default:"2347066279531"
+}
+
+const iti=window.intlTelInput(phoneInput,{
+  initialCountry:"auto",
+  geoIpLookup:function(callback){
+    fetch("https://ipapi.co/json")
+    .then(res=>res.json())
+    .then(data=>callback(data.country_code))
+    .catch(()=>callback("us"))
+  },
+  separateDialCode:true,
+  utilsScript:"https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js"
+})
+
+phoneInput.addEventListener("countrychange",function(){
+  const data=iti.getSelectedCountryData()
+  countryInput.value=data.name
+})
+
+document.querySelectorAll("[data-support-trigger]").forEach(btn=>{
+  btn.addEventListener("click",()=>overlay.classList.add("active"))
+})
+
+closeBtn.addEventListener("click",()=>overlay.classList.remove("active"))
+
+overlay.addEventListener("click",e=>{
+  if(e.target===overlay)overlay.classList.remove("active")
+})
+
+form.addEventListener("submit",function(e){
+  e.preventDefault()
+  let valid=true
+
+  form.querySelectorAll("input[required], textarea[required]").forEach(field=>{
+    const error=field.closest(".field").querySelector(".error")
+    if(!field.value.trim()){
+      error.textContent="Required field"
+      error.classList.add("show")
+      valid=false
+    }else{
+      error.classList.remove("show")
+    }
+  })
+
+  if(!iti.isValidNumber()){
+    const error=phoneInput.closest(".field").querySelector(".error")
+    error.textContent="Invalid phone number"
+    error.classList.add("show")
+    valid=false
+  }
+
+  if(!valid)return
+
+  const selectedCountry=iti.getSelectedCountryData().iso2
+  const receiver=whatsappNumbers[selectedCountry]||whatsappNumbers.default
+  const fullNumber=iti.getNumber()
+
+  const message=
+`SUPPORT REQUEST
+--------------------
+Full Name: ${form.fullname.value}
+Country: ${form.country.value}
+WhatsApp: ${fullNumber}
+Referral: ${form.referral.value || "Not provided"}
+Direct Discovery: ${document.getElementById("directVisit").checked ? "Yes":"No"}
+
+Details:
+${form.details.value}`
+
+  const encoded=encodeURIComponent(message)
+
+  whatsappBtn.href=`https://wa.me/${receiver}?text=${encoded}`
+  emailBtn.href=`mailto:pauloeditorial@gmail.com?subject=Support Request&body=${encoded}`
+
+  stepOne.classList.remove("active")
+  setTimeout(()=>stepTwo.classList.add("active"),200)
+})
+</script>
+
+
+
+
+
+
+
+<!-- FOOTER MENU -->
+
+
+<section class="commandFooter">
+
+    <div class="footerAura"></div>
+    <div class="footerNoise"></div>
+
+    <div class="footerWrapper revealFooter">
+
+        <div class="footerTop">
+
+            <div class="footerBrand">
+                <h2>Elevate<br>Research</h2>
+                <p>
+                    Precision-driven academic guidance, structured publication strategy,
+                    and institutional alignment across global research ecosystems.
+                </p>
+            </div>
+
+            <div class="footerNavGrid">
+
+                <div class="footerCard magnetic tilt">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Leadership</a></li>
+                        <li><a href="#">Global Clients</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footerCard magnetic tilt">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Research Insights</a></li>
+                        <li><a href="#">Submission Guide</a></li>
+                        <li><a href="#">Publication Ethics</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footerCard contactCard magnetic tilt">
+                    <h4>Contact</h4>
+
+                    <div class="contactItem">
+                        <span>Email</span>
+                        <a href="#">support@elevateresearch.com</a>
+                    </div>
+
+                    <div class="contactItem">
+                        <span>Office</span>
+                        <p>London · Dubai · Singapore</p>
+                    </div>
+
+                    <div class="contactItem">
+                        <span>Hours</span>
+                        <p>Mon–Fri 9AM – 6PM GMT</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footerBottom">
+            <span>© 2026 Elevate Research Advisory</span>
+            <span>Engineered with clarity & precision</span>
+        </div>
+
+    </div>
+
+    <button class="supportButton magnetic">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.4 2 2 6.1 2 11c0 2.5 1.3 4.8 3.5 6.4V22l4.3-2.3c.7.2 1.5.3 2.2.3 5.6 0 10-4.1 10-9S17.6 2 12 2z"/>
+        </svg>
+    </button>
+
+    <button class="scrollToggle">
+        <svg class="progressRing" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="44"/>
+        </svg>
+        <span class="arrow">↓</span>
+    </button>
+
+</section>
+
+<style>
+
+.commandFooter{
+    position:relative;
+    padding:200px 6% 120px;
+    overflow:hidden;
+    background:
+    radial-gradient(circle at 20% 25%,rgba(56,189,248,.18),transparent 55%),
+    radial-gradient(circle at 80% 75%,rgba(168,85,247,.14),transparent 60%),
+    linear-gradient(180deg,#ffffff 0%,#f5faff 45%,#eef6ff 100%);
+}
+
+.footerAura{
+    position:absolute;
+    inset:-250px;
+    background:
+    radial-gradient(circle at 30% 30%,rgba(56,189,248,.35),transparent 60%),
+    radial-gradient(circle at 70% 70%,rgba(168,85,247,.25),transparent 65%);
+    filter:blur(140px);
+    animation:auraMove 22s ease-in-out infinite alternate;
+    opacity:.55;
+}
+
+@keyframes auraMove{
+    from{transform:translate(-4%,-4%)}
+    to{transform:translate(4%,4%)}
+}
+
+.footerNoise{
+    position:absolute;
+    inset:0;
+    background-image:url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity:.035;
+    pointer-events:none;
+}
+
+.footerWrapper{
+    max-width:1300px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.revealFooter{
+    opacity:0;
+    transform:translateY(60px);
+    transition:all 1s cubic-bezier(.16,1,.3,1);
+}
+
+.revealFooter.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.footerTop{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:100px;
+}
+
+.footerBrand h2{
+    font-size:clamp(50px,7vw,110px);
+    font-weight:200;
+    line-height:1.05;
+    background:linear-gradient(90deg,#0ea5e9,#7c3aed);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.footerBrand p{
+    margin-top:28px;
+    max-width:440px;
+    font-size:15px;
+    line-height:1.9;
+    color:#4b5563;
+}
+
+.footerNavGrid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.footerCard{
+    background:rgba(255,255,255,.65);
+    border:1px solid rgba(56,189,248,.15);
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+    padding:38px;
+    border-radius:28px;
+    transition:all .5s cubic-bezier(.16,1,.3,1);
+    box-shadow:
+    0 25px 60px rgba(14,165,233,.08),
+    0 8px 20px rgba(0,0,0,.04);
+    transform-style:preserve-3d;
+}
+
+.footerCard:hover{
+    transform:translateY(-6px);
+    box-shadow:
+    0 35px 80px rgba(14,165,233,.14),
+    0 12px 30px rgba(0,0,0,.06);
+}
+
+.footerCard h4{
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:24px;
+    color:#94a3b8;
+}
+
+.footerCard ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.footerCard li{
+    margin-bottom:16px;
+}
+
+.footerCard a{
+    font-size:14px;
+    color:#0f172a;
+    text-decoration:none;
+    transition:.3s ease;
+}
+
+.footerCard a:hover{
+    color:#0ea5e9;
+}
+
+.contactItem{
+    margin-bottom:20px;
+}
+
+.contactItem span{
+    display:block;
+    font-size:11px;
+    letter-spacing:1px;
+    color:#94a3b8;
+    margin-bottom:6px;
+}
+
+.contactItem p{
+    margin:0;
+    font-size:14px;
+    color:#0f172a;
+}
+
+.footerBottom{
+    margin-top:120px;
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:#64748b;
+}
+
+.supportButton{
+    position:fixed;
+    bottom:100px;
+    right:40px;
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    border:none;
+    background:linear-gradient(135deg,#0ea5e9,#7c3aed);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:999;
+    box-shadow:0 20px 50px rgba(14,165,233,.35);
+    transition:.35s ease;
+}
+
+.supportButton:hover{
+    transform:translateY(-6px) scale(1.08);
+}
+
+.supportButton svg{
+    width:26px;
+    fill:#ffffff;
+}
+
+.scrollToggle{
+    position:fixed;
+    bottom:30px;
+    right:40px;
+    width:60px;
+    height:60px;
+    border:none;
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(14,165,233,.12);
+}
+
+.scrollToggle .arrow{
+    position:absolute;
+    font-size:18px;
+    color:#0f172a;
+}
+
+.progressRing{
+    position:absolute;
+    width:100%;
+    height:100%;
+    transform:rotate(-90deg);
+}
+
+.progressRing circle{
+    fill:none;
+    stroke:#0ea5e9;
+    stroke-width:4;
+    stroke-dasharray:276;
+    stroke-dashoffset:276;
+    transition:.2s linear;
+}
+
+@media(max-width:1000px){
+
+    .footerTop{
+        grid-template-columns:1fr;
+        gap:60px;
+    }
+
+    .footerNavGrid{
+        grid-template-columns:1fr;
+    }
+
+    .footerBottom{
+        flex-direction:column;
+        gap:12px;
+        text-align:center;
+    }
+
+    .supportButton,
+    .scrollToggle{
+        right:20px;
+    }
+
+}
+
+</style>
+
+<script>
+
+const revealFooter=document.querySelector(".revealFooter")
+const magnetic=document.querySelectorAll(".magnetic")
+const tilt=document.querySelectorAll(".tilt")
+const scrollToggle=document.querySelector(".scrollToggle")
+const arrow=document.querySelector(".arrow")
+const circle=document.querySelector(".progressRing circle")
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY+window.innerHeight>revealFooter.offsetTop+100){
+        revealFooter.classList.add("active")
+    }
+
+    const scrollTop=window.scrollY
+    const docHeight=document.body.scrollHeight-window.innerHeight
+    const progress=scrollTop/docHeight
+    const circumference=276
+
+    circle.style.strokeDashoffset=circumference-(progress*circumference)
+
+    arrow.textContent=scrollTop<window.innerHeight*.6?"↓":"↑"
+
+})
+
+scrollToggle.addEventListener("click",()=>{
+
+    window.scrollTo({
+        top:window.scrollY<window.innerHeight*.6?
+        document.body.scrollHeight:0,
+        behavior:"smooth"
+    })
+
+})
+
+magnetic.forEach(el=>{
+    el.addEventListener("mousemove",e=>{
+        const r=el.getBoundingClientRect()
+        const x=(e.clientX-r.left-r.width/2)*.12
+        const y=(e.clientY-r.top-r.height/2)*.12
+        el.style.transform=`translate(${x}px,${y}px)`
+    })
+    el.addEventListener("mouseleave",()=>{
+        el.style.transform=""
+    })
+})
+
+tilt.forEach(el=>{
+    el.addEventListener("mousemove",e=>{
+        const r=el.getBoundingClientRect()
+        const x=(e.clientX-r.left)/r.width-.5
+        const y=(e.clientY-r.top)/r.height-.5
+        el.style.transform+=` rotateY(${x*8}deg) rotateX(${-y*8}deg)`
+    })
+    el.addEventListener("mouseleave",()=>{
+        el.style.transform=""
+    })
+})
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="js/script.js"></script>
+</body>
+</html>
