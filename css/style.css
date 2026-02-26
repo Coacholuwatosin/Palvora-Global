@@ -6,6 +6,8 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: clip;
+    scrollbar-gutter: stable;
 }
 
 body {
@@ -14,11 +16,13 @@ body {
         radial-gradient(circle at 70% 25%, rgba(30,107,255,0.12), transparent 55%),
         linear-gradient(160deg, #06070c 0%, #0a0d16 50%, #05070c 100%);
     color: #ffffff;
-    overflow-x: hidden;
+    overflow-x: clip;
+    overflow-y: auto;
     position: relative;
+    min-height: 100vh;
+    width: 100%;
 }
 
-/* subtle premium noise overlay */
 body::after {
     content: "";
     position: fixed;
@@ -29,6 +33,12 @@ body::after {
     pointer-events: none;
     z-index: 1;
 }
+
+
+
+
+
+
 
 
 

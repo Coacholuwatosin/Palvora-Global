@@ -99,13 +99,12 @@
     height:48px;
     width:auto;
     max-width:180px;
-    /* object-fit:contain; */
+    object-fit:contain;
     transition:.3s ease;
-    border: 1px solid red;
 }
 
 .commandHeader.shrink .brandLogo{
-    height:40px;
+    height:43px;
 }
 
 .navDock{
@@ -264,6 +263,9 @@ magneticLogo.addEventListener("mouseleave",()=>{
 })
 
 </script>
+
+
+
 
 
 
@@ -1360,6 +1362,362 @@ magneticLogo.addEventListener("mouseleave",()=>{
 
 
 
+
+<!-- Porfolio 3 -->
+
+<section class="portfolioSection">
+    <div class="portfolioWrapper">
+
+
+
+        <div class="portfolioHeader">
+            <p class="proofMini">Our Verified Portfolio</p>
+            <h2>Evidence That Speaks Beyond Words</h2>
+        </div>
+
+        <div class="portfolioTabs">
+            <button class="tabButton active" data-tab="all">All Portfolio</button>
+            <button class="tabButton" data-tab="research">Research Writing</button>
+            <button class="tabButton" data-tab="citation">Citation Growth</button>
+            <button class="tabButton" data-tab="publication">Publication</button>
+            <button class="tabButton" data-tab="thesis">Thesis</button>
+        </div>
+
+        <div class="portfolioGrid" id="portfolioGrid"></div>
+
+    </div>
+</section>
+
+<style>
+
+.portfolioSection {
+    padding: 180px 6%;
+    position: relative;
+}
+
+.portfolioWrapper {
+    max-width: 1400px;
+    margin: auto;
+}
+
+
+
+.proofMini {
+    letter-spacing: 3px;
+    font-size: 12px;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
+
+.portfolioHeader {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.portfolioHeader h2 {
+    font-size: clamp(26px, 6vw, 48px);
+    background: linear-gradient(90deg, #7C3AED, #38BDF8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700px;
+}
+
+.portfolioTabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.tabButton {
+    padding: 14px 28px;
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    color: #ccc;
+    transition: 0.3s;
+    backdrop-filter: blur(10px);
+}
+
+.tabButton.active {
+    background: linear-gradient(90deg, #7C3AED, #38BDF8);
+    color: #fff;
+}
+
+.portfolioGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    transition: 0.4s;
+}
+
+.portfolioCard {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 28px;
+    padding: 24px;
+    backdrop-filter: blur(20px);
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolioCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(124, 58, 237, 0.3);
+}
+
+.cardTitle {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.splitWrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.splitWrapper img {
+    width: 100%;
+    display: block;
+}
+
+.splitOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    overflow: hidden;
+    height: 100%;
+}
+
+.splitHandle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3px;
+    height: 100%;
+    background: #38BDF8;
+    cursor: ew-resize;
+}
+
+.badge {
+    position: absolute;
+    top: 12px;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 20px;
+}
+
+.badge.before {
+    left: 12px;
+    background: #dc2626;
+}
+
+.badge.after {
+    right: 12px;
+    background: #16a34a;
+}
+
+.cardButton {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #7C3AED, #38BDF8);
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.fadeIn {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+</style>
+
+<script>
+
+const data = {
+
+    research: [
+        { title: "Medical Research Manuscript", image: "https://images.unsplash.com/photo-1581093458791-9f3c3900df5b" },
+        { title: "Clinical Study Report", image: "https://images.unsplash.com/photo-1579154204601-01588f351e67" },
+        { title: "AI Healthcare Paper", image: "https://images.unsplash.com/photo-1581091012184-5c6f1a7b3b2e" },
+        { title: "Neuroscience Journal Draft", image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d" }
+    ],
+
+    citation: [
+        { title: "Google Scholar Boost", before: "https://images.unsplash.com/photo-1551288049-bebda4e38f71", after: "https://images.unsplash.com/photo-1551288049-bebda4e38f71" },
+        { title: "Scopus Citation Growth", before: "https://images.unsplash.com/photo-1554224155-6726b3ff858f", after: "https://images.unsplash.com/photo-1554224155-6726b3ff858f" },
+        { title: "Research Visibility Case", before: "https://images.unsplash.com/photo-1460925895917-afdab827c52f", after: "https://images.unsplash.com/photo-1460925895917-afdab827c52f" },
+        { title: "Academic Profile Optimization", before: "https://images.unsplash.com/photo-1508780709619-79562169bc64", after: "https://images.unsplash.com/photo-1508780709619-79562169bc64" }
+    ],
+
+    publication: [
+        { title: "Scopus Indexed Publication", image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f" },
+        { title: "ISI Journal Acceptance", image: "https://images.unsplash.com/photo-1519681393784-d120267933ba" },
+        { title: "International Conference Paper", image: "https://images.unsplash.com/photo-1492724441997-5dc865305da7" },
+        { title: "Peer Reviewed Article", image: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32" }
+    ],
+
+    thesis: [
+        { title: "Master’s Thesis - Engineering", image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c" },
+        { title: "PhD Dissertation - Medicine", image: "https://images.unsplash.com/photo-1584697964358-3e14ca57658b" },
+        { title: "MBA Thesis Project", image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c" },
+        { title: "Data Science Capstone", image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d" }
+    ]
+
+};
+
+function shuffle(arr) {
+    return arr.sort(() => 0.5 - Math.random());
+}
+
+function render(tab) {
+
+    const grid = document.getElementById("portfolioGrid");
+    grid.innerHTML = "";
+    let items = [];
+
+    if (tab === "all") {
+
+        Object.keys(data).forEach(cat => {
+            items = items.concat(
+                shuffle([...data[cat]]).slice(0, 2).map(i => ({ ...i, cat }))
+            );
+        });
+
+    } else {
+
+        items = shuffle([...data[tab]]).slice(0, 3).map(i => ({ ...i, cat: tab }));
+
+    }
+
+    shuffle(items).forEach(item => {
+
+        let card = document.createElement("div");
+        card.className = "portfolioCard fadeIn";
+
+        if (item.cat === "citation") {
+
+            card.innerHTML = `
+                <div class="cardTitle">${item.title}</div>
+                <div class="splitWrapper">
+                    <img src="${item.after}?auto=format&fit=crop&w=800&q=80">
+                    <div class="splitOverlay">
+                        <img src="${item.before}?auto=format&fit=crop&w=800&q=80">
+                    </div>
+                    <div class="badge before">Before</div>
+                    <div class="badge after">After</div>
+                    <div class="splitHandle"></div>
+                </div>
+                <a href="#" target="_blank" class="cardButton">View Article</a>
+            `;
+
+        } else {
+
+            card.innerHTML = `
+                <div class="cardTitle">${item.title}</div>
+                <img src="${item.image}?auto=format&fit=crop&w=800&q=80" style="width:100%;border-radius:18px;">
+                <a href="#" target="_blank" class="cardButton">View Project</a>
+            `;
+
+        }
+
+        grid.appendChild(card);
+
+    });
+
+    initSplit();
+}
+
+function initSplit() {
+
+    document.querySelectorAll(".splitWrapper").forEach(wrapper => {
+
+        const overlay = wrapper.querySelector(".splitOverlay");
+        const handle = wrapper.querySelector(".splitHandle");
+
+        wrapper.addEventListener("mousemove", e => {
+
+            let rect = wrapper.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            overlay.style.width = x + "px";
+            handle.style.left = x + "px";
+
+        });
+
+    });
+
+}
+
+document.querySelectorAll(".tabButton").forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+        document.querySelectorAll(".tabButton").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        render(btn.dataset.tab);
+
+    });
+
+});
+
+render("all");
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <section class="leadershipSection">
 
     <div class="leadershipWrapper">
@@ -1778,14 +2136,16 @@ magneticLogo.addEventListener("mouseleave",()=>{
     font-size: 13px;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: rgba(56,189,248,0.8);
+    color: rgb(5, 177, 250);
+    font-weight: bold;
 }
 
 .trustIntro h2 {
     font-size: clamp(30px, 6vw, 60px);
-    font-weight: 600;
+    font-weight: 800 !important;
     color: #0f172a;
     margin-top: 20px;
+    margin-bottom: -90px;
 }
 
 .trustIntro h2 span {
@@ -1818,7 +2178,7 @@ magneticLogo.addEventListener("mouseleave",()=>{
 
 .coreGlow {
     position: absolute;
-    inset: -80px;
+    inset: -100px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(56,189,248,0.25), transparent 70%);
     filter: blur(120px);
@@ -1834,7 +2194,7 @@ magneticLogo.addEventListener("mouseleave",()=>{
 .trustCore p {
     font-size: 15px;
     line-height: 1.8;
-    color: rgba(15,23,42,0.75);
+    color: rgb(1, 7, 22);
 }
 
 .trustFragment {
@@ -1842,7 +2202,7 @@ magneticLogo.addEventListener("mouseleave",()=>{
     width: 300px;
     padding: 28px;
     border-radius: 22px;
-    background: rgba(255,255,255,0.6);
+    background: rgb(255, 255, 255);
     backdrop-filter: blur(35px);
     border: 1px solid rgba(255,255,255,0.7);
     box-shadow: 0 15px 40px rgba(56,189,248,0.12);
@@ -1858,7 +2218,7 @@ magneticLogo.addEventListener("mouseleave",()=>{
     font-size: 14px;
     line-height: 1.7;
     margin-bottom: 18px;
-    color: rgba(15,23,42,0.8);
+    color: rgb(11, 17, 33);
 }
 
 .reviewMeta {
